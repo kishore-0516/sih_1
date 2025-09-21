@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard - National Waste Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="government-header text-center">
+        <div class="container">
+            <h4><i class="fas fa-shield-alt me-2"></i>IN Government of India</h4>
+            <h1>National Waste Management System</h1>
+        </div>
+    </div>
+
+    <div class="container user-dashboard" id="admin-dashboard">
+        <a class="back-to-login"><i class="fas fa-arrow-left"></i> Back to Login</a>
+        <div class="dashboard-header">
+            <h2><i class="fas fa-cog me-2"></i> Administrator Dashboard</h2>
+            <p>Welcome, Administrator! Monitor system performance and manage users</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header admin-card">
+                        <i class="fas fa-chart-line fa-2x mb-2"></i>
+                        <h5>System Analytics</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>View waste management metrics and system performance</p>
+                        <button class="btn btn-admin w-100" onclick="showDetailPanel('system-analytics-panel')">View Analytics</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header admin-card">
+                        <i class="fas fa-users-cog fa-2x mb-2"></i>
+                        <h5>User Management</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Manage citizens, workers, and green champions</p>
+                        <button class="btn btn-admin w-100" onclick="showDetailPanel('user-management-panel')">Manage Users</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header admin-card">
+                        <i class="fas fa-money-bill-wave fa-2x mb-2"></i>
+                        <h5>Incentive Management</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Configure and monitor reward and penalty systems</p>
+                        <button class="btn btn-admin w-100" onclick="showDetailPanel('incentive-management-panel')">Manage Incentives</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header admin-card">
+                        <i class="fas fa-map-marked-alt fa-2x mb-2"></i>
+                        <h5>Zone Management</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Assign areas to workers and green champions</p>
+                        <button class="btn btn-admin w-100" onclick="showDetailPanel('zone-management-panel')">Manage Zones</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header admin-card">
+                        <i class="fas fa-industry fa-2x mb-2"></i>
+                        <h5>Industry Coordination</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Coordinate with recycling industries and scrap dealers</p>
+                        <button class="btn btn-admin w-100" onclick="showDetailPanel('industry-coordination-panel')">Manage Industries</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header admin-card">
+                        <i class="fas fa-file-alt fa-2x mb-2"></i>
+                        <h5>Compliance Reports</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Generate compliance reports and regulatory documents</p>
+                        <button class="btn btn-admin w-100" onclick="showDetailPanel('compliance-reports-panel')">Generate Reports</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="system-analytics-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('system-analytics-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>System Analytics</h3>
+
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h2>12,487</h2>
+                            <p>Registered Users</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h2>342</h2>
+                            <p>Active Workers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h2>78%</h2>
+                            <p>Collection Efficiency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h2>64%</h2>
+                            <p>Segregation Compliance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Waste Collection Trends
+                </div>
+                <div class="card-body">
+                    <div class="analytics-chart">
+                        <p class="text-center">
+                            <i class="fas fa-chart-bar fa-3x mb-3 text-muted"></i><br>
+                            Collection trends chart would be displayed here
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Regional Performance
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Zone</th>
+                                <th>Complaints</th>
+                                <th>Collection Rate</th>
+                                <th>Segregation Score</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>East Zone</td>
+                                <td>23</td>
+                                <td>92%</td>
+                                <td>78%</td>
+                                <td><span class="badge bg-success">Excellent</span></td>
+                            </tr>
+                            <tr>
+                                <td>West Zone</td>
+                                <td>42</td>
+                                <td>85%</td>
+                                <td>65%</td>
+                                <td><span class="badge bg-warning">Good</span></td>
+                            </tr>
+                            <tr>
+                                <td>North Zone</td>
+                                <td>67</td>
+                                <td>72%</td>
+                                <td>54%</td>
+                                <td><span class="badge bg-danger">Needs Attention</span></td>
+                            </tr>
+                            <tr>
+                                <td>South Zone</td>
+                                <td>38</td>
+                                <td>88%</td>
+                                <td>71%</td>
+                                <td><span class="badge bg-success">Excellent</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="user-management-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('user-management-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>User Management</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Manage System Users
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs" id="userManagementTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="citizens-tab" data-bs-toggle="tab" data-bs-target="#citizens" type="button" role="tab">Citizens</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="workers-tab" data-bs-toggle="tab" data-bs-target="#workers" type="button" role="tab">Workers</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="champions-tab" data-bs-toggle="tab" data-bs-target="#champions" type="button" role="tab">Green Champions</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content p-3" id="userManagementTabsContent">
+                        <div class="tab-pane fade show active" id="citizens" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="user-management-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Address</th>
+                                            <th>Segregation Score</th>
+                                            <th>Reward Points</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>C1001</td>
+                                            <td>Rajesh Kumar</td>
+                                            <td>Green Avenue, Bengaluru</td>
+                                            <td>85%</td>
+                                            <td>450</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>C1002</td>
+                                            <td>Priya Sharma</td>
+                                            <td>Park Road, Bengaluru</td>
+                                            <td>72%</td>
+                                            <td>320</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>C1003</td>
+                                            <td>Mohammed Khan</td>
+                                            <td>Commercial Street, Bengaluru</td>
+                                            <td>65%</td>
+                                            <td>180</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="workers" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="user-management-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Zone</th>
+                                            <th>Performance</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>W2001</td>
+                                            <td>Suresh Kumar</td>
+                                            <td>East Zone</td>
+                                            <td>4.8/5</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>W2002</td>
+                                            <td>Ramesh Patel</td>
+                                            <td>West Zone</td>
+                                            <td>4.5/5</td>
+                                            <td><span class="badge bg-success">Active</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>W2003</td>
+                                            <td>Anita Singh</td>
+                                            <td>North Zone</td>
+                                            <td>4.2/5</td>
+                                            <td><span class="badge bg-warning">On Leave</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="champions" role="tabpanel">
+                            <div class="table-responsive">
+                                <table class="user-management-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Zone</th>
+                                            <th>Events Conducted</th>
+                                            <th>Impact Score</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>GC3001</td>
+                                            <td>Arun Mehta</td>
+                                            <td>East Zone</td>
+                                            <td>12</td>
+                                            <td>92%</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>GC3002</td>
+                                            <td>Laxmi Devi</td>
+                                            <td>South Zone</td>
+                                            <td>8</td>
+                                            <td>85%</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>GC3003</td>
+                                            <td>Vikram Joshi</td>
+                                            <td>West Zone</td>
+                                            <td>15</td>
+                                            <td>96%</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary">View</button>
+                                                <button class="btn btn-sm btn-warning">Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="incentive-management-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('incentive-management-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Incentive Management</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Configure Reward System
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Reward Points Configuration</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Points for Excellent Segregation (5 stars)</label>
+                                <input type="number" class="form-control" value="50">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Points for Good Segregation (4 stars)</label>
+                                <input type="number" class="form-control" value="30">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Points for Average Segregation (3 stars)</label>
+                                <input type="number" class="form-control" value="10">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h5>Penalty Points Configuration</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Penalty for Poor Segregation (2 stars)</label>
+                                <input type="number" class="form-control" value="-20">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Penalty for Very Poor Segregation (1 star)</label>
+                                <input type="number" class="form-control" value="-40">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Penalty for No Segregation</label>
+                                <input type="number" class="form-control" value="-50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Reward Thresholds</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">Bronze Level</span>
+                            <input type="number" class="form-control" value="100">
+                            <span class="input-group-text">points</span>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">Silver Level</span>
+                            <input type="number" class="form-control" value="300">
+                            <span class="input-group-text">points</span>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">Gold Level</span>
+                            <input type="number" class="form-control" value="500">
+                            <span class="input-group-text">points</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary">Save Configuration</button>
+                </div>
+            </div>
+
+            <h4>Reward Redemption Options</h4>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Reward</th>
+                                    <th>Points Required</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>₹100 Shopping Voucher</td>
+                                    <td>200</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Movie Tickets (2 persons)</td>
+                                    <td>300</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Electricity Bill Discount (10%)</td>
+                                    <td>400</td>
+                                    <td><span class="badge bg-secondary">Inactive</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h4>System Incentive Statistics</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <h3>4,250</h3>
+                            <p>Total Rewards Given</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h3>1,240</h3>
+                            <p>Active Reward Claims</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h3>78%</h3>
+                            <p>Redemption Rate</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h3>₹84,500</h3>
+                            <p>Total Savings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="zone-management-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('zone-management-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Zone Management</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Zone Assignment
+                </div>
+                <div class="card-body">
+                    <div class="zone-map">
+                        <p class="text-center">
+                            <i class="fas fa-map fa-3x mb-3 text-muted"></i><br>
+                            Interactive zone map would be displayed here
+                        </p>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Assign Worker to Zone</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Select Worker</label>
+                                <select class="form-select">
+                                    <option value="">Select Worker</option>
+                                    <option value="worker1">Suresh Kumar (W2001)</option>
+                                    <option value="worker2">Ramesh Patel (W2002)</option>
+                                    <option value="worker3">Anita Singh (W2003)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Select Zone</label>
+                                <select class="form-select">
+                                    <option value="">Select Zone</option>
+                                    <option value="zone1">East Zone</option>
+                                    <option value="zone2">West Zone</option>
+                                    <option value="zone3">North Zone</option>
+                                    <option value="zone4">South Zone</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary">Assign Zone</button>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h5>Assign Green Champion to Zone</h5>
+                            <div class="mb-3">
+                                <label class="form-label">Select Green Champion</label>
+                                <select class="form-select">
+                                    <option value="">Select Champion</option>
+                                    <option value="champ1">Arun Mehta (GC3001)</option>
+                                    <option value="champ2">Laxmi Devi (GC3002)</option>
+                                    <option value="champ3">Vikram Joshi (GC3003)</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Select Zone</label>
+                                <select class="form-select">
+                                    <option value="">Select Zone</option>
+                                    <option value="zone1">East Zone</option>
+                                    <option value="zone2">West Zone</option>
+                                    <option value="zone3">North Zone</option>
+                                    <option value="zone4">South Zone</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary">Assign Zone</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Current Zone Assignments</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Zone</th>
+                                    <th>Assigned Worker</th>
+                                    <th>Assigned Green Champion</th>
+                                    <th>Households</th>
+                                    <th>Performance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>East Zone</td>
+                                    <td>Suresh Kumar (W2001)</td>
+                                    <td>Arun Mehta (GC3001)</td>
+                                    <td>1,250</td>
+                                    <td>92%</td>
+                                </tr>
+                                <tr>
+                                    <td>West Zone</td>
+                                    <td>Ramesh Patel (W2002)</td>
+                                    <td>Vikram Joshi (GC3003)</td>
+                                    <td>980</td>
+                                    <td>85%</td>
+                                </tr>
+                                <tr>
+                                    <td>North Zone</td>
+                                    <td>Anita Singh (W2003)</td>
+                                    <td>Laxmi Devi (GC3002)</td>
+                                    <td>1,100</td>
+                                    <td>78%</td>
+                                </tr>
+                                <tr>
+                                    <td>South Zone</td>
+                                    <td>Vacant</td>
+                                    <td>Vacant</td>
+                                    <td>1,400</td>
+                                    <td>65%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="industry-coordination-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('industry-coordination-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Industry Coordination</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Recycling Industry Partners
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="industry-table">
+                            <thead>
+                                <tr>
+                                    <th>Industry Name</th>
+                                    <th>Type</th>
+                                    <th>Contact</th>
+                                    <th>Materials Accepted</th>
+                                    <th>Rate (per kg)</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>GreenTech Recyclers</td>
+                                    <td>Plastic</td>
+                                    <td>Ravi Sharma<br>9876543210</td>
+                                    <td>PET, HDPE, PP</td>
+                                    <td>₹18</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>EcoPaper Mills</td>
+                                    <td>Paper</td>
+                                    <td>Anjali Mehta<br>8765432109</td>
+                                    <td>Newspaper, Cardboard, Mixed Paper</td>
+                                    <td>₹12</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>MetalWorks India</td>
+                                    <td>Metal</td>
+                                    <td>Vikram Singh<br>7654321098</td>
+                                    <td>Aluminum, Steel, Copper</td>
+                                    <td>₹25-80</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td>GlassCraft Industries</td>
+                                    <td>Glass</td>
+                                    <td>Priya Reddy<br>6543210987</td>
+                                    <td>Clear, Brown, Green Glass</td>
+                                    <td>₹8</td>
+                                    <td><span class="badge bg-warning">Limited</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Monthly Purchase Reports</h4>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Plastic (kg)</th>
+                                    <th>Paper (kg)</th>
+                                    <th>Metal (kg)</th>
+                                    <th>Glass (kg)</th>
+                                    <th>Total Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>July 2023</td>
+                                    <td>1,250</td>
+                                    <td>2,100</td>
+                                    <td>450</td>
+                                    <td>800</td>
+                                    <td>₹68,400</td>
+                                </tr>
+                                <tr>
+                                    <td>June 2023</td>
+                                    <td>1,100</td>
+                                    <td>1,950</td>
+                                    <td>380</td>
+                                    <td>720</td>
+                                    <td>₹59,800</td>
+                                </tr>
+                                <tr>
+                                    <td>May 2023</td>
+                                    <td>980</td>
+                                    <td>1,800</td>
+                                    <td>350</td>
+                                    <td>650</td>
+                                    <td>₹54,200</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Add New Industry Partner</h4>
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Industry Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Industry Type</label>
+                                    <select class="form-select">
+                                        <option value="">Select Type</option>
+                                        <option value="plastic">Plastic Recycling</option>
+                                        <option value="paper">Paper Recycling</option>
+                                        <option value="metal">Metal Recycling</option>
+                                        <option value="glass">Glass Recycling</option>
+                                        <option value="ewaste">E-Waste Recycling</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Contact Person</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Contact Number</label>
+                                    <input type="tel" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Materials Accepted</label>
+                                    <input type="text" class="form-control" placeholder="Comma separated list">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Rate per kg (₹)</label>
+                                    <input type="number" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary">Add Industry Partner</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="compliance-reports-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('compliance-reports-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Compliance Reports</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    Generate Compliance Reports
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Report Type</label>
+                                <select class="form-select" id="report-type">
+                                    <option value="">Select Report Type</option>
+                                    <option value="monthly">Monthly Compliance Report</option>
+                                    <option value="quarterly">Quarterly Performance Report</option>
+                                    <option value="waste">Waste Collection Report</option>
+                                    <option value="segregation">Segregation Compliance Report</option>
+                                    <option value="industry">Industry Coordination Report</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Time Period</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="month" class="form-control" id="report-month" value="2023-08">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select class="form-select" id="report-quarter">
+                                            <option value="Q1">Quarter 1 (Jan-Mar)</option>
+                                            <option value="Q2">Quarter 2 (Apr-Jun)</option>
+                                            <option value="Q3" selected>Quarter 3 (Jul-Sep)</option>
+                                            <option value="Q4">Quarter 4 (Oct-Dec)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Zone</label>
+                                <select class="form-select" id="report-zone">
+                                    <option value="all">All Zones</option>
+                                    <option value="east">East Zone</option>
+                                    <option value="west">West Zone</option>
+                                    <option value="north">North Zone</option>
+                                    <option value="south">South Zone</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Format</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="reportFormat" id="format-pdf" value="pdf" checked>
+                                        <label class="form-check-label" for="format-pdf">PDF</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="reportFormat" id="format-excel" value="excel">
+                                        <label class="form-check-label" for="format-excel">Excel</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="reportFormat" id="format-csv" value="csv">
+                                        <label class="form-check-label" for="format-csv">CSV</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="generateReport()">Generate Report</button>
+                </div>
+            </div>
+
+            <h4>Recent Reports</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="compliance-report">
+                        <div class="d-flex justify-content-between">
+                            <h5>Monthly Compliance Report - July 2023</h5>
+                            <div>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-download me-1"></i> Download</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye me-1"></i> View</button>
+                            </div>
+                        </div>
+                        <p>Generated on: August 5, 2023 | Format: PDF | Zones: All</p>
+                    </div>
+
+                    <div class="compliance-report">
+                        <div class="d-flex justify-content-between">
+                            <h5>Quarterly Performance Report - Q2 2023</h5>
+                            <div>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-download me-1"></i> Download</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye me-1"></i> View</button>
+                            </div>
+                        </div>
+                        <p>Generated on: July 10, 2023 | Format: Excel | Zones: All</p>
+                    </div>
+
+                    <div class="compliance-report">
+                        <div class="d-flex justify-content-between">
+                            <h5>Waste Collection Report - East Zone - June 2023</h5>
+                            <div>
+                                <button class="btn btn-sm btn-primary"><i class="fas fa-download me-1"></i> Download</button>
+                                <button class="btn btn-sm btn-secondary"><i class="fas fa-eye me-1"></i> View</button>
+                            </div>
+                        </div>
+                        <p>Generated on: July 5, 2023 | Format: PDF | Zones: East</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>National Waste Management System</h5>
+                    <p>An initiative by the Government of India to promote sustainable waste management practices and create a cleaner environment.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Training Modules</a></li>
+                        <li><a href="#" class="text-white">Recycling Centers</a></li>
+                        <li><a href="#" class="text-white">Policy Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i>1800-WASTE-HELP</li>
+                        <li><i class="fas fa-envelope me-2"></i>support@wastemgmt.gov.in</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 bg-light">
+            <p class="text-center mb-0">© 2023 Government of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+        // Separate script for this dashboard's functionality
+        function showDetailPanel(panelId) {
+            document.querySelectorAll('.detail-panel').forEach(panel => panel.style.display = 'none');
+            document.getElementById(panelId).style.display = 'block';
+        }
+
+        function hideDetailPanel(panelId) {
+            document.getElementById(panelId).style.display = 'none';
+        }
+
+        function generateReport() {
+            const reportType = document.getElementById('report-type').value;
+            if (!reportType) {
+                alert('Please select a report type');
+                return;
+            }
+
+            alert('Report generation started! You will be notified when it is ready.');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Champion Dashboard - National Waste Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="government-header text-center">
+        <div class="container">
+            <h4><i class="fas fa-shield-alt me-2"></i>IN Government of India</h4>
+            <h1>National Waste Management System</h1>
+        </div>
+    </div>
+
+    <div class="container user-dashboard" id="champion-dashboard">
+        <a class="back-to-login"><i class="fas fa-arrow-left"></i> Back to Login</a>
+        <div class="dashboard-header">
+            <h2><i class="fas fa-hands-helping me-2"></i> Green Champion Dashboard</h2>
+            <p>Welcome, Green Champion! Thank you for volunteering to drive change in your community</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header champion-card">
+                        <i class="fas fa-calendar-alt fa-2x mb-2"></i>
+                        <h5>Community Engagement</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Organize awareness programs and community events</p>
+                        <button class="btn btn-champion w-100" onclick="showDetailPanel('community-engagement-panel')">Manage Events</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header champion-card">
+                        <i class="fas fa-chalkboard-teacher fa-2x mb-2"></i>
+                        <h5>Awareness Sessions</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Conduct sessions on waste segregation practices</p>
+                        <button class="btn btn-champion w-100" onclick="showDetailPanel('awareness-sessions-panel')">Schedule Sessions</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header champion-card">
+                        <i class="fas fa-clipboard-check fa-2x mb-2"></i>
+                        <h5>Compliance Monitoring</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Monitor segregation compliance in your assigned area</p>
+                        <button class="btn btn-champion w-100" onclick="showDetailPanel('compliance-monitoring-panel')">Monitor Compliance</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header champion-card">
+                        <i class="fas fa-hands-helping fa-2x mb-2"></i>
+                        <h5>Volunteer Coordination</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Coordinate with other volunteers in your area</p>
+                        <button class="btn btn-champion w-100" onclick="showDetailPanel('volunteer-coordination-panel')">Manage Volunteers</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header champion-card">
+                        <i class="fas fa-trophy fa-2x mb-2"></i>
+                        <h5>Achievements & Rewards</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Track your impact and earned rewards</p>
+                        <button class="btn btn-champion w-100" onclick="showDetailPanel('achievements-rewards-panel')">View Achievements</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header champion-card">
+                        <i class="fas fa-comment-dots fa-2x mb-2"></i>
+                        <h5>Feedback & Reporting</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Provide feedback and report community issues</p>
+                        <button class="btn btn-champion w-100" onclick="showDetailPanel('feedback-reporting-panel')">Submit Feedback</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="community-engagement-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('community-engagement-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Community Engagement</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Organize Community Event
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Event Type</label>
+                            <select class="form-select">
+                                <option value="">Select Event Type</option>
+                                <option value="cleanup">Community Cleanup Drive</option>
+                                <option value="workshop">Waste Management Workshop</option>
+                                <option value="awareness">Awareness Campaign</option>
+                                <option value="other">Other Event</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Event Name</label>
+                            <input type="text" class="form-control" placeholder="Enter event name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date and Time</label>
+                            <input type="datetime-local" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" placeholder="Enter event location">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Expected Participants</label>
+                            <input type="number" class="form-control" placeholder="Enter number of expected participants">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe the event"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-success">Create Event</button>
+                    </form>
+                </div>
+            </div>
+
+            <h4>Upcoming Community Events</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="event-calendar mb-4">
+                        <div class="calendar-day">Sun</div>
+                        <div class="calendar-day">Mon</div>
+                        <div class="calendar-day">Tue</div>
+                        <div class="calendar-day">Wed</div>
+                        <div class="calendar-day">Thu</div>
+                        <div class="calendar-day">Fri</div>
+                        <div class="calendar-day">Sat</div>
+
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day">10</div>
+                        <div class="calendar-day">11</div>
+                        <div class="calendar-day">12</div>
+
+                        <div class="calendar-day">13</div>
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day active">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+
+                        <div class="calendar-day">20</div>
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day">25</div>
+                        <div class="calendar-day">26</div>
+
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                        <div class="calendar-day">31</div>
+                    </div>
+
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Community Cleanup Drive - Green Avenue</h5>
+                                <span class="badge bg-primary">Scheduled</span>
+                            </div>
+                            <p><strong>Date:</strong> August 20, 2023 - 9:00 AM</p>
+                            <p><strong>Location:</strong> Green Avenue Park</p>
+                            <p><strong>Expected Participants:</strong> 25</p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Waste Segregation Workshop</h5>
+                                <span class="badge bg-primary">Scheduled</span>
+                            </div>
+                            <p><strong>Date:</strong> August 25, 2023 - 3:00 PM</p>
+                            <p><strong>Location:</strong> Community Hall</p>
+                            <p><strong>Expected Participants:</strong> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="awareness-sessions-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('awareness-sessions-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Awareness Sessions</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Schedule Awareness Session
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Session Topic</label>
+                            <select class="form-select">
+                                <option value="">Select Topic</option>
+                                <option value="segregation">Waste Segregation Basics</option>
+                                <option value="composting">Home Composting Techniques</option>
+                                <option value="recycling">Recycling Best Practices</option>
+                                <option value="hazardous">Handling Hazardous Waste</option>
+                                <option value="other">Other Topic</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date and Time</label>
+                            <input type="datetime-local" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" placeholder="Enter session location">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Expected Attendees</label>
+                            <input type="number" class="form-control" placeholder="Enter number of expected attendees">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Session Materials Needed</label>
+                            <textarea class="form-control" rows="2" placeholder="List any materials needed"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-success">Schedule Session</button>
+                    </form>
+                </div>
+            </div>
+            <h4>Upcoming Awareness Sessions</h4>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="session-list">
+                        <li class="session-item">
+                            <h5>Waste Segregation Basics</h5>
+                            <p><strong>Date:</strong> August 20, 2023 - 10:00 AM</p>
+                            <p><strong>Location:</strong> Community Hall, Green Avenue</p>
+                            <p><strong>Expected Attendees:</strong> 25</p>
+                            <p><strong>Status:</strong> <span class="badge bg-primary">Scheduled</span></p>
+                        </li>
+                        <li class="session-item">
+                            <h5>Home Composting Workshop</h5>
+                            <p><strong>Date:</strong> August 25, 2023 - 3:00 PM</p>
+                            <p><strong>Location:</strong> Park Community Center</p>
+                            <p><strong>Expected Attendees:</strong> 15</p>
+                            <p><strong>Status:</strong> <span class="badge bg-primary">Scheduled</span></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="compliance-monitoring-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('compliance-monitoring-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Compliance Monitoring</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Monitor Segregation Compliance
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Select Area for Monitoring</label>
+                        <select class="form-select">
+                            <option value="">Select Area</option>
+                            <option value="area1">Green Avenue</option>
+                            <option value="area2">Park Road</option>
+                            <option value="area3">Commercial Street</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Compliance Check</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check1">
+                            <label class="form-check-label" for="check1">Proper segregation of wet and dry waste</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check2">
+                            <label class="form-check-label" for="check2">Use of designated waste bins</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check3">
+                            <label class="form-check-label" for="check3">Cleanliness around waste collection points</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="check4">
+                            <label class="form-check-label" for="check4">Proper storage of waste before collection</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Overall Compliance Rating</label>
+                        <div class="rating-system">
+                            <span class="rating-star" data-value="1"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="2"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="3"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="4"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="5"><i class="fas fa-star"></i></span>
+                        </div>
+                        <div id="compliance-rating-text">Please select a rating</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Observations</label>
+                        <textarea class="form-control" rows="3" placeholder="Record your observations"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Upload Photos (Optional)</label>
+                        <input type="file" class="form-control" multiple>
+                    </div>
+
+                    <button class="btn btn-success">Submit Compliance Report</button>
+                </div>
+            </div>
+
+            <h4>Recent Compliance Reports</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Area</th>
+                                    <th>Compliance Rating</th>
+                                    <th>Observations</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15 Aug 2023</td>
+                                    <td>Green Avenue</td>
+                                    <td>
+                                        <span class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                    </td>
+                                    <td>Excellent compliance observed</td>
+                                    <td><span class="badge bg-success">Submitted</span></td>
+                                </tr>
+                                <tr>
+                                    <td>10 Aug 2023</td>
+                                    <td>Park Road</td>
+                                    <td>
+                                        <span class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                    </td>
+                                    <td>Good overall, some issues with plastic segregation</td>
+                                    <td><span class="badge bg-success">Submitted</span></td>
+                                </tr>
+                                <tr>
+                                    <td>05 Aug 2023</td>
+                                    <td>Commercial Street</td>
+                                    <td>
+                                        <span class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                    </td>
+                                    <td>Mixed waste observed from several shops</td>
+                                    <td><span class="badge bg-success">Submitted</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="volunteer-coordination-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('volunteer-coordination-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Volunteer Coordination</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Manage Volunteers in Your Area
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Assign Volunteers to Tasks</label>
+                        <select class="form-select mb-2">
+                            <option value="">Select Task</option>
+                            <option value="cleanup">Community Cleanup - Aug 20</option>
+                            <option value="workshop">Segregation Workshop - Aug 25</option>
+                            <option value="monitoring">Compliance Monitoring - Weekly</option>
+                        </select>
+
+                        <select class="form-select" multiple>
+                            <option value="vol1">Arun Mehta</option>
+                            <option value="vol2">Laxmi Devi</option>
+                            <option value="vol3">Vikram Joshi</option>
+                            <option value="vol4">Priya Reddy</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-success mb-4">Assign Volunteers</button>
+
+                    <h5>Volunteer Communication</h5>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="3" placeholder="Type message for volunteers"></textarea>
+                    </div>
+                    <button class="btn btn-outline-success">Send Message</button>
+                </div>
+            </div>
+
+            <h4>Volunteers in Your Area</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="volunteer-grid">
+                        <div class="volunteer-card">
+                            <img src="https://via.placeholder.com/80" class="rounded-circle mb-2" alt="Volunteer">
+                            <h5>Arun Mehta</h5>
+                            <p>Active since: Jan 2023</p>
+                            <p>Tasks completed: 12</p>
+                            <p>Rating: <span class="text-warning">★★★★★</span></p>
+                            <button class="btn btn-sm btn-success">Contact</button>
+                        </div>
+
+                        <div class="volunteer-card">
+                            <img src="https://via.placeholder.com/80" class="rounded-circle mb-2" alt="Volunteer">
+                            <h5>Laxmi Devi</h5>
+                            <p>Active since: Mar 2023</p>
+                            <p>Tasks completed: 8</p>
+                            <p>Rating: <span class="text-warning">★★★★☆</span></p>
+                            <button class="btn btn-sm btn-success">Contact</button>
+                        </div>
+
+                        <div class="volunteer-card">
+                            <img src="https://via.placeholder.com/80" class="rounded-circle mb-2" alt="Volunteer">
+                            <h5>Vikram Joshi</h5>
+                            <p>Active since: Dec 2022</p>
+                            <p>Tasks completed: 15</p>
+                            <p>Rating: <span class="text-warning">★★★★★</span></p>
+                            <button class="btn btn-sm btn-success">Contact</button>
+                        </div>
+
+                        <div class="volunteer-card">
+                            <img src="https://via.placeholder.com/80" class="rounded-circle mb-2" alt="Volunteer">
+                            <h5>Priya Reddy</h5>
+                            <p>Active since: Feb 2023</p>
+                            <p>Tasks completed: 6</p>
+                            <p>Rating: <span class="text-warning">★★★★☆</span></p>
+                            <button class="btn btn-sm btn-success">Contact</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="achievements-rewards-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('achievements-rewards-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Achievements & Rewards</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Your Impact & Recognition
+                </div>
+                <div class="card-body">
+                    <div class="row text-center mb-4">
+                        <div class="col-md-4">
+                            <h2>15</h2>
+                            <p>Events Organized</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>240</h2>
+                            <p>People Reached</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>92%</h2>
+                            <p>Area Compliance</p>
+                        </div>
+                    </div>
+
+                    <h5>Your Achievements</h5>
+                    <div class="d-flex flex-wrap mb-4">
+                        <span class="achievement-badge"><i class="fas fa-award me-1"></i> First Event</span>
+                        <span class="achievement-badge"><i class="fas fa-award me-1"></i> Community Star</span>
+                        <span class="achievement-badge"><i class="fas fa-award me-1"></i> Waste Warrior</span>
+                        <span class="achievement-badge"><i class="fas fa-award me-1"></i> Education Champion</span>
+                        <span class="achievement-badge"><i class="fas fa-award me-1"></i> Consistency Master</span>
+                    </div>
+
+                    <h5>Your Rewards</h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Reward</th>
+                                    <th>Points</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15 Aug 2023</td>
+                                    <td>₹500 Gift Voucher</td>
+                                    <td>500</td>
+                                    <td><span class="badge bg-success">Redeemed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>10 Jul 2023</td>
+                                    <td>Eco-friendly Kit</td>
+                                    <td>300</td>
+                                    <td><span class="badge bg-success">Received</span></td>
+                                </tr>
+                                <tr>
+                                    <td>05 Jun 2023</td>
+                                    <td>Movie Tickets</td>
+                                    <td>200</td>
+                                    <td><span class="badge bg-success">Redeemed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Available Rewards</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center">
+                                    <h5>₹1000 Shopping Voucher</h5>
+                                    <p>1000 points</p>
+                                    <button class="btn btn-success btn-sm">Redeem</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center">
+                                    <h5>Smart Watch</h5>
+                                    <p>1500 points</p>
+                                    <button class="btn btn-success btn-sm">Redeem</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center">
+                                    <h5>Weekend Getaway</h5>
+                                    <p>2000 points</p>
+                                    <button class="btn btn-success btn-sm">Redeem</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="feedback-reporting-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('feedback-reporting-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Feedback & Reporting</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    Submit Feedback or Report Issue
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <select class="form-select" id="feedback-type">
+                            <option value="">Select Type</option>
+                            <option value="feedback">General Feedback</option>
+                            <option value="issue">Community Issue</option>
+                            <option value="suggestion">Improvement Suggestion</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" placeholder="Enter title">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="4" placeholder="Provide details"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Location (if applicable)</label>
+                        <input type="text" class="form-control" placeholder="Enter location">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Upload Photos (Optional)</label>
+                        <input type="file" class="form-control" multiple>
+                    </div>
+
+                    <button class="btn btn-success">Submit Feedback</button>
+                </div>
+            </div>
+
+            <h4>Your Previous Submissions</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Need more bins in Park Road area</h5>
+                                <span class="badge bg-warning">In Review</span>
+                            </div>
+                            <p>Submitted on: August 12, 2023</p>
+                            <p>Type: Community Issue</p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Suggestion: Multilingual awareness materials</h5>
+                                <span class="badge bg-success">Approved</span>
+                            </div>
+                            <p>Submitted on: August 5, 2023</p>
+                            <p>Type: Improvement Suggestion</p>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Positive feedback on recent workshop</h5>
+                                <span class="badge bg-success">Reviewed</span>
+                            </div>
+                            <p>Submitted on: July 28, 2023</p>
+                            <p>Type: General Feedback</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>National Waste Management System</h5>
+                    <p>An initiative by the Government of India to promote sustainable waste management practices and create a cleaner environment.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Training Modules</a></li>
+                        <li><a href="#" class="text-white">Recycling Centers</a></li>
+                        <li><a href="#" class="text-white">Policy Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i>1800-WASTE-HELP</li>
+                        <li><i class="fas fa-envelope me-2"></i>support@wastemgmt.gov.in</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 bg-light">
+            <p class="text-center mb-0">© 2023 Government of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+        // Separate script for this dashboard's functionality
+        function showDetailPanel(panelId) {
+            document.querySelectorAll('.detail-panel').forEach(panel => panel.style.display = 'none');
+            document.getElementById(panelId).style.display = 'block';
+            if (panelId === 'compliance-monitoring-panel') {
+                initComplianceRatingSystem();
+            }
+        }
+
+        function hideDetailPanel(panelId) {
+            document.getElementById(panelId).style.display = 'none';
+        }
+
+        function initComplianceRatingSystem() {
+            const stars = document.querySelectorAll('#compliance-monitoring-panel .rating-system .rating-star');
+            const ratingText = document.getElementById('compliance-rating-text');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+
+                    // Update stars
+                    stars.forEach(s => {
+                        if (s.getAttribute('data-value') <= value) {
+                            s.classList.add('active');
+                            s.innerHTML = '<i class="fas fa-star"></i>';
+                        } else {
+                            s.classList.remove('active');
+                            s.innerHTML = '<i class="far fa-star"></i>';
+                        }
+                    });
+
+                    // Update rating text
+                    const ratings = [
+                        'Poor Compliance',
+                        'Fair Compliance',
+                        'Good Compliance',
+                        'Very Good Compliance',
+                        'Excellent Compliance'
+                    ];
+                    ratingText.textContent = ratings[value - 1];
+                });
+            });
+        }
+    </script>
+</body>
+</html>

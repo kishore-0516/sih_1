@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Dashboard - National Waste Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="government-header text-center">
+        <div class="container">
+            <h4><i class="fas fa-shield-alt me-2"></i>IN Government of India</h4>
+            <h1>National Waste Management System</h1>
+        </div>
+    </div>
+
+    <div class="container user-dashboard" id="worker-dashboard">
+        <a class="back-to-login"><i class="fas fa-arrow-left"></i> Back to Login</a>
+        <div class="dashboard-header">
+            <h2><i class="fas fa-hard-hat me-2"></i> Worker Dashboard</h2>
+            <p>Welcome, Waste Management Worker! Manage your tasks and reports</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header worker-card">
+                        <i class="fas fa-tasks fa-2x mb-2"></i>
+                        <h5>Task Assignments</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>View your assigned tasks and collection schedules</p>
+                        <button class="btn btn-worker w-100" onclick="showDetailPanel('worker-tasks-panel')">View Tasks</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header worker-card">
+                        <i class="fas fa-camera fa-2x mb-2"></i>
+                        <h5>Photo Documentation</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Upload before and after photos of waste collection</p>
+                        <button class="btn btn-worker w-100" onclick="showDetailPanel('photo-documentation-panel')">Upload Photos</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header worker-card">
+                        <i class="fas fa-clipboard-check fa-2x mb-2"></i>
+                        <h5>Segregation Verification</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Verify citizen waste segregation and assign ratings</p>
+                        <button class="btn btn-worker w-100" onclick="showDetailPanel('segregation-verification-panel')">Verify Segregation</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header worker-card">
+                        <i class="fas fa-medal fa-2x mb-2"></i>
+                        <h5>Reward/Penalty System</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Issue rewards or penalties based on segregation quality</p>
+                        <button class="btn btn-worker w-100" onclick="showDetailPanel('reward-system-panel')">Manage Rewards</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header worker-card">
+                        <i class="fas fa-route fa-2x mb-2"></i>
+                        <h5>Collection Route</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>View your optimized collection route for the day</p>
+                        <button class="btn btn-worker w-100" onclick="showDetailPanel('collection-route-panel')">View Route</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-card-header worker-card">
+                        <i class="fas fa-exclamation-circle fa-2x mb-2"></i>
+                        <h5>Issue Reporting</h5>
+                    </div>
+                    <div class="feature-card-body">
+                        <p>Report issues encountered during collection</p>
+                        <button class="btn btn-worker w-100" onclick="showDetailPanel('issue-reporting-panel')">Report Issue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="worker-tasks-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('worker-tasks-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Task Assignments</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    Today's Tasks - Wednesday, August 16, 2023
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <div class="task-item list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Green Avenue Area Collection</h5>
+                                <span class="badge bg-primary">Scheduled: 9:00 AM</span>
+                            </div>
+                            <p><strong>Status:</strong> <span class="badge bg-success">Completed</span></p>
+                            <p><strong>Households:</strong> 45/45 completed</p>
+                            <p><strong>Waste Collected:</strong> 320 kg</p>
+                        </div>
+                        <div class="task-item list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Park Road Area Collection</h5>
+                                <span class="badge bg-primary">Scheduled: 11:30 AM</span>
+                            </div>
+                            <p><strong>Status:</strong> <span class="badge bg-info">In Progress</span></p>
+                            <p><strong>Households:</strong> 22/38 completed</p>
+                            <p><strong>Next Stop:</strong> 24, Park Road</p>
+                        </div>
+                        <div class="task-item list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5>Commercial Street Collection</h5>
+                                <span class="badge bg-primary">Scheduled: 2:00 PM</span>
+                            </div>
+                            <p><strong>Status:</strong> <span class="badge bg-secondary">Pending</span></p>
+                            <p><strong>Est. Duration:</strong> 2 hours</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Weekly Performance</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Total Collections:</strong> 187 households</p>
+                            <p><strong>Average Rating:</strong> 4.6/5.0 <i class="fas fa-star text-warning"></i></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Waste Collected:</strong> 1,240 kg</p>
+                            <p><strong>Recycling Rate:</strong> 68%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="photo-documentation-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('photo-documentation-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Photo Documentation</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    Upload Collection Photos
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Select Collection Point</label>
+                        <select class="form-select" id="collection-point">
+                            <option value="">Select Collection Point</option>
+                            <option value="point1">Green Avenue - House 12</option>
+                            <option value="point2">Park Road - Apartment Complex</option>
+                            <option value="point3">Commercial Street - Shop 45</option>
+                        </select>
+                    </div>
+
+                    <div class="photo-documentation-container">
+                        <div class="photo-item">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-camera fa-2x"></i>
+                            </div>
+                            <div class="photo-actions">
+                                <button class="btn btn-sm btn-primary w-100" onclick="takeOrUploadPhoto('before')">
+                                    <i class="fas fa-plus me-1"></i> Before
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="photo-item">
+                            <div class="photo-placeholder">
+                                <i class="fas fa-camera fa-2x"></i>
+                            </div>
+                            <div class="photo-actions">
+                                <button class="btn btn-sm btn-success w-100" onclick="takeOrUploadPhoto('after')">
+                                    <i class="fas fa-plus me-1"></i> After
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Additional Notes</label>
+                        <textarea class="form-control" rows="3" placeholder="Add any notes about the collection"></textarea>
+                    </div>
+
+                    <button class="btn btn-warning" onclick="submitPhotos()">Submit Documentation</button>
+                </div>
+            </div>
+
+            <h4>Recent Photo Documentations</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th>Before Photo</th>
+                                    <th>After Photo</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15 Aug 2023</td>
+                                    <td>Green Avenue - House 8</td>
+                                    <td><span class="badge bg-success">Uploaded</span></td>
+                                    <td><span class="badge bg-success">Uploaded</span></td>
+                                    <td><span class="badge bg-success">Verified</span></td>
+                                </tr>
+                                <tr>
+                                    <td>14 Aug 2023</td>
+                                    <td>Park Road - Apartment</td>
+                                    <td><span class="badge bg-success">Uploaded</span></td>
+                                    <td><span class="badge bg-success">Uploaded</span></td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="segregation-verification-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('segregation-verification-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Segregation Verification</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    Verify Citizen Waste Segregation
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Select Citizen/Household</label>
+                        <select class="form-select" id="citizen-select">
+                            <option value="">Select Citizen</option>
+                            <option value="citizen1">Rajesh Kumar (Green Ave - H12)</option>
+                            <option value="citizen2">Priya Sharma (Park Rd - Apt 5B)</option>
+                            <option value="citizen3">Mohammed Khan (Commercial St - S45)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Segregation Quality</label>
+                        <div class="rating-system">
+                            <span class="rating-star" data-value="1"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="2"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="3"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="4"><i class="fas fa-star"></i></span>
+                            <span class="rating-star" data-value="5"><i class="fas fa-star"></i></span>
+                        </div>
+                        <div id="rating-text">Please select a rating</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Observations</label>
+                        <textarea class="form-control" rows="3" placeholder="Add observations about waste segregation"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Upload Verification Photo (Optional)</label>
+                        <input type="file" class="form-control">
+                    </div>
+
+                    <button class="btn btn-warning" onclick="submitVerification()">Submit Verification</button>
+                </div>
+            </div>
+
+            <h4>Recent Verifications</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Citizen</th>
+                                    <th>Rating</th>
+                                    <th>Observations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15 Aug 2023</td>
+                                    <td>Rajesh Kumar</td>
+                                    <td>
+                                        <span class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                    </td>
+                                    <td>Excellent segregation</td>
+                                </tr>
+                                <tr>
+                                    <td>14 Aug 2023</td>
+                                    <td>Priya Sharma</td>
+                                    <td>
+                                        <span class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </span>
+                                    </td>
+                                    <td>Good, but some plastic in wet waste</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="reward-system-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('reward-system-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Reward/Penalty System</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    Assign Rewards or Penalties
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Select Citizen/Household</label>
+                        <select class="form-select" id="reward-citizen">
+                            <option value="">Select Citizen</option>
+                            <option value="citizen1">Rajesh Kumar (Green Ave - H12)</option>
+                            <option value="citizen2">Priya Sharma (Park Rd - Apt 5B)</option>
+                            <option value="citizen3">Mohammed Khan (Commercial St - S45)</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Action Type</label>
+                        <select class="form-select" id="action-type">
+                            <option value="">Select Action</option>
+                            <option value="reward">Reward - Good Segregation</option>
+                            <option value="penalty">Penalty - Poor Segregation</option>
+                            <option value="warning">Warning - First Offense</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Points</label>
+                        <input type="number" class="form-control" id="reward-points" placeholder="Enter points">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Reason</label>
+                        <textarea class="form-control" rows="3" placeholder="Explain the reason for reward/penalty"></textarea>
+                    </div>
+
+                    <button class="btn btn-warning" onclick="submitRewardPenalty()">Submit Action</button>
+                </div>
+            </div>
+
+            <h4>Reward/Penalty History</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="reward-penalty-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Citizen</th>
+                                    <th>Type</th>
+                                    <th>Points</th>
+                                    <th>Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15 Aug 2023</td>
+                                    <td>Rajesh Kumar</td>
+                                    <td><span class="badge bg-success">Reward</span></td>
+                                    <td>+50</td>
+                                    <td>Excellent segregation for 2 weeks</td>
+                                </tr>
+                                <tr>
+                                    <td>10 Aug 2023</td>
+                                    <td>Mohammed Khan</td>
+                                    <td><span class="badge bg-danger">Penalty</span></td>
+                                    <td>-30</td>
+                                    <td>Mixed waste repeatedly</td>
+                                </tr>
+                                <tr>
+                                    <td>05 Aug 2023</td>
+                                    <td>Priya Sharma</td>
+                                    <td><span class="badge bg-warning">Warning</span></td>
+                                    <td>0</td>
+                                    <td>First offense - plastic in wet waste</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="collection-route-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('collection-route-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Collection Route</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    Today's Optimized Collection Route
+                </div>
+                <div class="card-body">
+                    <div class="route-map">
+                        <p class="text-center">
+                            <i class="fas fa-route fa-3x mb-3 text-muted"></i><br>
+                            Optimized collection route map would be displayed here
+                        </p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Route Details</h5>
+                            <p><strong>Total Stops:</strong> 38</p>
+                            <p><strong>Estimated Distance:</strong> 12.5 km</p>
+                            <p><strong>Estimated Time:</strong> 3 hours 15 minutes</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Progress</h5>
+                            <div class="progress mb-2">
+                                <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65% Complete</div>
+                            </div>
+                            <p><strong>Completed:</strong> 25/38 stops</p>
+                            <p><strong>Remaining Time:</strong> ~1 hour 10 minutes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Route Sequence</h4>
+            <div class="card">
+                <div class="card-body">
+                    <ol>
+                        <li>Green Avenue - Houses 1-10</li>
+                        <li>Park Road - Apartments A-D</li>
+                        <li>Commercial Street - Shops 1-25</li>
+                        <li>Green Avenue - Houses 11-20</li>
+                        <li>Community Center</li>
+                        <li>Park Road - Apartments E-H</li>
+                        <li>Commercial Street - Shops 26-50</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="issue-reporting-panel" class="detail-panel">
+            <a class="back-button" onclick="hideDetailPanel('issue-reporting-panel')"><i class="fas fa-arrow-left"></i> Back</a>
+            <h3>Issue Reporting</h3>
+
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    Report Collection Issues
+                </div>
+                <div class="card-body">
+                    <div class="issue-report-form">
+                        <div class="mb-3">
+                            <label class="form-label">Issue Type</label>
+                            <select class="form-select" id="issue-type">
+                                <option value="">Select Issue Type</option>
+                                <option value="bin">Damaged Bin</option>
+                                <option value="access">Access Issue</option>
+                                <option value="vehicle">Vehicle Problem</option>
+                                <option value="safety">Safety Concern</option>
+                                <option value="other">Other Issue</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" id="issue-location" placeholder="Enter issue location">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Describe the issue in detail"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Upload Photo (Optional)</label>
+                            <input type="file" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Priority</label>
+                            <select class="form-select" id="issue-priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-warning" onclick="submitIssueReport()">Submit Report</button>
+                    </div>
+                </div>
+            </div>
+
+            <h4>Recent Issue Reports</h4>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Location</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15 Aug 2023</td>
+                                    <td>Damaged Bin</td>
+                                    <td>Green Avenue - House 12</td>
+                                    <td><span class="badge bg-warning">Medium</span></td>
+                                    <td><span class="badge bg-success">Resolved</span></td>
+                                </tr>
+                                <tr>
+                                    <td>14 Aug 2023</td>
+                                    <td>Access Issue</td>
+                                    <td>Park Road - Apartment D</td>
+                                    <td><span class="badge bg-info">Low</span></td>
+                                    <td><span class="badge bg-warning">Pending</span></td>
+                                </tr>
+                                <tr>
+                                    <td>13 Aug 2023</td>
+                                    <td>Vehicle Problem</td>
+                                    <td>Commercial Street</td>
+                                    <td><span class="badge bg-danger">High</span></td>
+                                    <td><span class="badge bg-success">Resolved</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>National Waste Management System</h5>
+                    <p>An initiative by the Government of India to promote sustainable waste management practices and create a cleaner environment.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Training Modules</a></li>
+                        <li><a href="#" class="text-white">Recycling Centers</a></li>
+                        <li><a href="#" class="text-white">Policy Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-phone me-2"></i>1800-WASTE-HELP</li>
+                        <li><i class="fas fa-envelope me-2"></i>support@wastemgmt.gov.in</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 bg-light">
+            <p class="text-center mb-0">© 2023 Government of India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+        // Separate script for this dashboard's functionality
+        function showDetailPanel(panelId) {
+            document.querySelectorAll('.detail-panel').forEach(panel => panel.style.display = 'none');
+            document.getElementById(panelId).style.display = 'block';
+            if (panelId === 'segregation-verification-panel') {
+                initRatingSystem('segregation-verification-panel');
+            }
+        }
+
+        function hideDetailPanel(panelId) {
+            document.getElementById(panelId).style.display = 'none';
+        }
+
+        function takeOrUploadPhoto(type) {
+            alert((type === 'before' ? 'Before' : 'After') + ' photo would be taken or uploaded here');
+        }
+
+        function submitPhotos() {
+            const collectionPoint = document.getElementById('collection-point').value;
+            if (!collectionPoint) {
+                alert('Please select a collection point');
+                return;
+            }
+
+            alert('Photos submitted successfully for collection point!');
+        }
+
+        function initRatingSystem(panelId) {
+            const stars = document.querySelectorAll(`#${panelId} .rating-system .rating-star`);
+            const ratingText = document.getElementById('rating-text');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+
+                    // Update stars
+                    stars.forEach(s => {
+                        if (s.getAttribute('data-value') <= value) {
+                            s.classList.add('active');
+                            s.innerHTML = '<i class="fas fa-star"></i>';
+                        } else {
+                            s.classList.remove('active');
+                            s.innerHTML = '<i class="far fa-star"></i>';
+                        }
+                    });
+
+                    // Update rating text
+                    const ratings = [
+                        'Poor - No segregation',
+                        'Fair - Minimal segregation',
+                        'Good - Partial segregation',
+                        'Very Good - Mostly segregated',
+                        'Excellent - Perfect segregation'
+                    ];
+                    ratingText.textContent = ratings[value - 1];
+                });
+            });
+        }
+
+        function submitVerification() {
+            const citizen = document.getElementById('citizen-select').value;
+            if (!citizen) {
+                alert('Please select a citizen');
+                return;
+            }
+
+            alert('Segregation verification submitted successfully!');
+        }
+
+        function submitRewardPenalty() {
+            const citizen = document.getElementById('reward-citizen').value;
+            const actionType = document.getElementById('action-type').value;
+            const points = document.getElementById('reward-points').value;
+
+            if (!citizen || !actionType || !points) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            alert('Reward/penalty action submitted successfully!');
+        }
+
+        function submitIssueReport() {
+            const issueType = document.getElementById('issue-type').value;
+            const issueLocation = document.getElementById('issue-location').value;
+
+            if (!issueType || !issueLocation) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            alert('Issue report submitted successfully! Reference ID: ISSUE-' + Math.floor(Math.random() * 10000));
+        }
+    </script>
+</body>
+</html>
